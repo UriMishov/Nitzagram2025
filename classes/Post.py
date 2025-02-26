@@ -8,9 +8,12 @@ class Post:
     """
     A class used to represent post on Nitzagram
     """
-    def __init__(self): #TODO: add parameters
-        #TODO: write me!
-        pass
+    def __init__(self, user_name, location="", description=""):
+        self.user_name = user_name
+        self.location = location
+        self.likes_counter = 0
+        self.Comments = []
+        self.description = description
 
     def display(self):
         """
@@ -19,8 +22,11 @@ class Post:
 
         :return: None
         """
-        # TODO: write me!
-        pass
+        pygame.disaplay.
+        self.location = " "
+        self.likes_counter = None
+        self.Comments = None
+        self.description = None
 
 
     def display_comments(self):
