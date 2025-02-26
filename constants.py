@@ -3,6 +3,9 @@
 WINDOW_WIDTH = 360
 WINDOW_HEIGHT = 720
 
+#hiiiiii
+
+
 # Post proportions
 # X, Y represent the top left corner of the Post
 POST_WIDTH = 0.87 * WINDOW_WIDTH
