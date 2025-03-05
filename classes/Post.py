@@ -8,26 +8,51 @@ class Post:
     """
     A class used to represent post on Nitzagram
     """
+
     def __init__(self, user_name, location="", description=""):
         self.user_name = user_name
         self.location = location
         self.likes_counter = 0
-        self.Comments = []
+        self.comments = []
         self.description = description
 
-    def display(self):
-        """
-        Display the Post image/Text, description, location, likes and comments
-        on screen
+    def add_like(self):
+        self.likes_counter += 1
 
-        :return: None
-        """
-        pygame.disaplay.
-        self.location = " "
-        self.likes_counter = None
-        self.Comments = None
-        self.description = None
+    def add_comment(self, text):
+        self.comments.append(Comment(text))
 
+    def display_above(self):
+        position_index_user = (USER_NAME_X_POS, USER_NAME_Y_POS)
+        position_index_location = (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS)
+        position_index_description = (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS)
+
+        font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
+
+        user_name_to_display = font.render(self.user_name,True, LIGHT_GRAY)
+        location_to_display = font.render(self.location, True, LIGHT_GRAY)
+        description_to_display = font.render(self.description, True, LIGHT_GRAY)
+
+        screen.blit(user_name_to_display, position_index_user)
+        screen.blit(location_to_display, position_index_description)
+        screen.blit(description_to_display, position_index_location)
+
+    def display_post(self):
+        pass
+
+    def display_under(self):
+        position_index_like = (LIKE_BUTTON_X_POS, LIKE_BUTTON_Y_POS)
+        position_index_comments = (COMMENT_BUTTON_X_POST, COMMENT_BUTTON_Y_POS)
+        position_index_share = (SHARE_BUTTON_X_POST, SHARE_BUTTON_Y_POS)
+
+        font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
+
+        like_to_display = font.render(self.likes_counter ,True, LIGHT_GRAY)
+        comments_to_display = font.render(self.comments, True, LIGHT_GRAY)
+        share_to_display = font.render(self.sh)
+
+        screen.blit(like_to_display, position_index_like)
+        screen.blit(comments_to_display, position_index_comments)
 
     def display_comments(self):
         """
@@ -54,6 +79,3 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
-
-
-
