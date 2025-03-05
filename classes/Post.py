@@ -23,6 +23,9 @@ class Post:
         self.comments.append(Comment(text))
 
     def display_above(self):
+        image = pygame.image.load('background.png')
+        screen.blit(image, (POST_X_POS, POST_Y_POS))
+        
         position_index_user = (USER_NAME_X_POS, USER_NAME_Y_POS)
         position_index_location = (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS)
         position_index_description = (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS)
@@ -45,6 +48,8 @@ class Post:
         position_index_comments = (COMMENT_BUTTON_X_POST, COMMENT_BUTTON_Y_POS)
         position_index_share = (SHARE_BUTTON_X_POST, SHARE_BUTTON_Y_POS)
 
+
+
         font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
 
         like_to_display = font.render(self.likes_counter ,True, LIGHT_GRAY)
@@ -55,6 +60,7 @@ class Post:
         screen.blit(comments_to_display, position_index_comments)
 
     def display_comments(self):
+
         """
         Display comments on post. In case there are more than 4
         comments, show only 4 comments chosen by reset_comments_display_index
